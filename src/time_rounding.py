@@ -16,9 +16,10 @@ def round_single_time(time_before: int, min_entity: int, time_buffer: int):
     return time_buffer, time_after
 
 
-def round_times(entries: list, min_entity: int):
+def round_times(entries: list, min_entity: int):  # FIXME use buffer
     time_buffer = 0
     for entry in entries:
         el = entry["time_entry"]
-        time_buffer, el["minutes"] = round_single_time(el["minutes"], min_entity, time_buffer)
+        time_buffer, el["minutes"] = round_single_time(
+            el["minutes"], min_entity, time_buffer)
     return time_buffer
